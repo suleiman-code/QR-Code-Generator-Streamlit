@@ -17,6 +17,7 @@ class QRCodeApp:
         # Variables
         self.qr_image = None
         self.current_qr_pil = None
+        self.logo_path = None # Variable for optional logo image
         self.status_text = tk.StringVar(value="Ready")
         self.data_var = tk.StringVar()
 
@@ -55,7 +56,6 @@ class QRCodeApp:
         self.data_entry = ttk.Entry(input_frame, textvariable=self.data_var, font=("Segoe UI", 11))
         self.data_entry.grid(row=0, column=1, sticky="ew", padx=5, pady=5)
         self.data_entry.focus()
-
         input_frame.columnconfigure(1, weight=1)
 
         # Action Buttons
@@ -122,17 +122,19 @@ class QRCodeApp:
         try:
             self.update_status("🔄 Generating QR Code...")
             
-            # Generate QR
-            qr = qrcode.QRCode(version=1, box_size=10, border=4)
+            # Use Standard Error Correction
+            qr = qrcode.QRCode(
+                version=1,
+                error_correction=qrcode.constants.ERROR_CORRECT_L,
+                box_size=10,
+                border=4
+            )
             qr.add_data(data)
             qr.make(fit=True)
             
             img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
             self.current_qr_pil = img
-            
-            # Update the display with dynamic scaling
             self.update_qr_display()
-            
             self.update_status(f"✅ Generated QR for: {data}")
             
         except Exception as e:
