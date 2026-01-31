@@ -1,31 +1,32 @@
-# QR Code Generator - Documentation
+# Premium QR Code Generator (Web App)
 
 ## Project Overview
-The **QR Code Generator** is a modern desktop application built using Python's Tkinter framework. It allows users to generate high-quality QR codes from any text or URL data and save them locally with custom filenames.
+The **Premium QR Code Generator** is a fast, modern, and responsive web application built with **Streamlit**. It allows users to generate high-quality QR codes for any URLs or text data directly from their browser, with the ability to download the result with a custom filename.
 
 ---
 
 ## Features
-- **Instant Generation**: Create QR codes instantly by clicking the "Generate QR" button.
-- **Dynamic Preview**: Features a live preview area where the QR code scales automatically when the window is resized.
-- **Custom Saving**: Securely save QR codes in `.png` or `.jpg` formats using a standard system file dialog.
-- **Modern UI**: A clean, professional interface with a responsive layout and helpful status updates.
-- **Error Handling**: Built-in validation to handle empty inputs and processing errors gracefully.
+- **🌍 Universal Access**: Accessible from any device (Mobile, Tablet, Desktop) via a web browser.
+- **⚡ Instant Generation**: Create QR codes in real-time with high error correction.
+- **💾 Custom Filenames**: Choose your own name for the QR code file before downloading.
+- **🎨 Premium UI**: Features a clean, professional, and stable interface with modern styling.
+- **📱 Responsive Design**: The layout automatically adjusts to fit any screen size.
+- **☁️ Cloud Ready**: Optimized for deployment on Streamlit Cloud or other web hosting platforms.
 
 ---
 
 ## Requirements
-To run this project, you need Python installed on your system along with the following libraries:
+To run this project locally, you need Python installed along with the following libraries:
+- `streamlit`: For the web interface and application logic.
 - `qrcode`: For generating the QR code data.
-- `Pillow (PIL)`: For image manipulation and display within Tkinter.
-- `opencv-python`: (Optional/Residual) Used for potential future scanning capabilities.
+- `Pillow (PIL)`: For handling and saving the QR code images.
 
 ---
 
 ## Installation Guide
 
-1. **Clone the Project**:
-   Ensure all files (`main.py`, `requirements.txt`) are in one folder.
+1. **Clone/Download the Project**:
+   Ensure all files (`app.py`, `requirements.txt`) are in your project directory.
 
 2. **Setup Virtual Environment (Recommended)**:
    ```bash
@@ -42,29 +43,39 @@ To run this project, you need Python installed on your system along with the fol
 
 ## How to Use
 
-### 1. Generating a QR Code
-- Launch the application by running `python main.py`.
-- Type your text or website URL into the **"Data / URL"** input field.
-- Click the **"Generate QR 🚀"** button. The QR code will appear in the preview area.
+### 1. Launching the App
+- Open your terminal in the project folder.
+- Run the following command:
+  ```bash
+  streamlit run app.py
+  ```
+- The application will automatically open in your default web browser (usually at `http://localhost:8501`).
 
-### 2. Resizing the Window
-- You can maximize or drag the corners of the window to resize it.
-- The QR code image will dynamically adjust its size to fit the new dimensions.
+### 2. Generating a QR Code
+- Enter your link or text in the **"🔗 Enter your Link or Text"** field.
+- (Optional) Provide a custom name in the **"💾 Save as (Filename)"** field.
+- Click the **"Generate QR Code Now 🚀"** button.
 
-### 3. Saving the QR Code
-- Click the **"Save QR 💾"** button.
-- A file explorer window will open.
-- Navigate to your desired folder, type your preferred name for the file, and click **Save**.
+### 3. Downloading the QR Code
+- Once generated, your QR code will appear on the screen.
+- Click the **"Download [YourName].png 💾"** button.
+- The file will be saved via your browser. 
+  - *Tip: If you want to choose a specific folder every time, enable "Ask where to save each file before downloading" in your browser's download settings.*
 
 ---
 
 ## Technical Details
-- **Framework**: Tkinter (Python Standard Library)
-- **Styling**: Ttk (Themed Tkinter) using the 'clam' theme for a consistent look.
-- **Image Handling**: Uses `Image.Resampling.LANCZOS` for high-quality scaling during window resizing.
-- **Architecture**: Class-based structure for better maintainability and code organization.
+- **Backend Framework**: Streamlit (Python)
+- **Image Processing**: Pillow (PIL)
+- **QR Engine**: qrcode (Python library)
+- **Design**: Customized CSS integration for a stable and premium user experience.
+
+---
+
+## Deployment
+This application is ready to be deployed on **Streamlit Cloud** for free. Simply push the code to a GitHub repository and connect it to Streamlit Cloud to receive a public sharing link.
 
 ---
 
 ## License
-This project is open-source and free to used for personal or commercial purposes.
+This project is open-source and free to be used for personal or commercial purposes.
